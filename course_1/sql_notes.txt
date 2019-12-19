@@ -75,8 +75,17 @@ SELECT name, gender from clients;
 
 SELECT name, gender from clients WHERE gender = 'M';
 
-SELECT name, gender FROM clients WHERE gender = 'F' LIMIT = 1;
+SELECT name, gender FROM clients WHERE gender = 'F' LIMIT 1;
 
 SELECT birthdate from clients;
 
 SELECT year(birthdate) from clients;
+
+SELECT NOW(); -- te devuelve el dato actual
+SELECT name, YEAR(NOW()) - YEAR(birthdate) from clients limit 10;
+mysql> SELECT name, YEAR(NOW()) - YEAR(birthdate) FROM clients WHERE name like '%Sanchez%'; -- busca la palabra sanchez en el campo de nombre 
+
+SELECT name, YEAR(NOW()) - YEAR(birthdate) as edad 
+FROM clients 
+WHERE gender = 'F'
+AND name LIKE '%Lop%';
