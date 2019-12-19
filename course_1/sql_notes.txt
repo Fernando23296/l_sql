@@ -70,3 +70,13 @@ INSERT INTO books(author_id,title) VALUES (5,'El reino del dragon');
 INSERT INTO books(title,author_id,year) VALUES ('El bsoque de los pigmeos',
 (SELECT author_id FROM authors WHERE name= 'Isabel Allende' LIMIT 1),2019
 );
+
+SELECT name, gender from clients;
+
+SELECT name, gender from clients WHERE gender = 'M';
+
+SELECT name, gender FROM clients WHERE gender = 'F' LIMIT = 1;
+
+SELECT birthdate from clients;
+
+SELECT year(birthdate) from clients;
