@@ -89,3 +89,32 @@ SELECT name, YEAR(NOW()) - YEAR(birthdate) as edad
 FROM clients 
 WHERE gender = 'F'
 AND name LIKE '%Lop%';
+
+SELECT count(*) from authors; --cuantos registros de autores hay
+
+select * from authors where author_id > 0 and author_id <= 5;
+select book_id,author_id, title from books where author_id between 1 and 5;
+-- JOIN
+SELECT b.book_id, a.name
+FROM books b
+JOIN authors as a 
+on a.author_id = b.author_id
+WHERE b.book_id between 1 and 5;
+-- two join 
+SELECT c.name, b.title, t.type
+FROM transactions t
+JOIN books AS b 
+ON b.book_id = t.book_id
+JOIN clients AS c 
+ON c.client_id = t.client_id
+WHERE c.gender='F'
+AND t.type='sell';
+--
+SELECT c.name, b.title, t.type
+FROM transactions t
+JOIN books AS b 
+ON b.book_id = t.book_id
+JOIN clients AS c 
+ON c.client_id = t.client_id
+WHERE c.gender='F'
+AND t.type IN ('sell', 'lend');
